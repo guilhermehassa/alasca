@@ -10,6 +10,7 @@ Landing page de captura para a Imersão em Direito Imobiliário, desenvolvida co
 - **SEO:** Yoast SEO
 - **Infraestrutura:** Docker (WordPress + MySQL + phpMyAdmin)
 - **Máscaras:** IMask.js
+- **Fontes:** Chivo (títulos e botões) · Figtree (textos)
 
 ## Pré-requisitos
 
