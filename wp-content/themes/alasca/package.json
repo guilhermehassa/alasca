@@ -1,0 +1,15 @@
+{
+  "name": "alasca-theme",
+  "version": "1.0.0",
+  "description": "Tema WordPress customizado - Imersão em Direito Imobiliário",
+  "scripts": {
+    "build": "npx tailwindcss -i ./src/input.css -o ./assets/css/style.css --minify",
+    "watch": "npx tailwindcss -i ./src/input.css -o ./assets/css/style.css --watch",
+    "dev": "npx tailwindcss -i ./src/input.css -o ./assets/css/style.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4",
+    "postcss": "^8.4",
+    "autoprefixer": "^10.4"
+  }
+}

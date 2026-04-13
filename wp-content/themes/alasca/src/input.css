@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply font-sans;
+    }
+    a {
+        @apply transition-colors duration-200;
+    }
+}
+
+@layer components {
+    .btn-cta {
+        @apply inline-block bg-primary hover:bg-primary-hover text-white font-heading font-bold
+               py-3 px-8 rounded-md uppercase tracking-wider text-sm
+               transition-all duration-300 cursor-pointer
+               focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
+               focus:ring-offset-black;
+    }
+
+    .btn-cta-alt {
+        @apply inline-block bg-black hover:bg-neutral-800 text-white font-heading font-bold
+               py-3 px-8 rounded-md uppercase tracking-wider text-sm w-full text-center
+               transition-all duration-300 cursor-pointer
+               focus:outline-none focus:ring-2 focus:ring-white/50;
+    }
+
+    .input-field {
+        @apply w-full bg-neutral-800 border border-neutral-700 text-white
+               rounded-md px-4 py-3 text-sm placeholder-neutral-500
+               focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
+               transition-all duration-200;
+    }
+
+    .input-field-alt {
+        @apply w-full bg-white/10 border border-white/20 text-white
+               rounded-md px-4 py-3 text-sm placeholder-white/60
+               focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent
+               transition-all duration-200;
+    }
+
+    .card {
+        @apply bg-dark-card border border-dark-border rounded-lg p-6;
+    }
+
+    .section-title {
+        @apply text-2xl md:text-3xl font-heading font-bold text-center text-white;
+    }
+
+    .badge {
+        @apply inline-flex items-center gap-1 bg-neutral-900 border border-neutral-700 rounded-full px-3 py-1 text-xs text-neutral-300;
+    }
+}
+
+/* Override Contact Form 7 */
+.wpcf7 {
+    @apply w-full;
+}
+.wpcf7-form {
+    @apply w-full;
+}
+.wpcf7-spinner {
+    display: none !important;
+}
+.wpcf7-response-output {
+    @apply text-sm mt-4 p-3 rounded-md border text-center;
+}
+.wpcf7 form.sent .wpcf7-response-output {
+    @apply bg-green-900/50 border-green-500 text-green-300;
+}
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.failed .wpcf7-response-output {
+    @apply bg-red-900/50 border-red-500 text-red-300;
+}
+.wpcf7-not-valid {
+    @apply border-red-500 ring-1 ring-red-500;
+}
+.wpcf7-not-valid-tip {
+    @apply text-red-400 text-xs mt-1;
+}
+.wpcf7 form.submitting .wpcf7-submit {
+    @apply opacity-50 cursor-wait;
+}
