@@ -1,0 +1,85 @@
+version: '3.8'
+
+services:
+  # ========================================
+  # MySQL 8.0
+  # ========================================
+  db:
+    image: mysql:8.0
+    container_name: alasca_db
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - alasca_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ========================================
+  # WordPress (Português do Brasil)
+  # ========================================
+  wordpress:
+    image: wordpress:latest
+    container_name: alasca_wp
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    env_file: .env
+    environment:
+      WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+      WORDPRESS_LOCALE: pt_BR
+      WORDPRESS_DEBUG: "true"
+    volumes:
+      - ./wp-content/themes/alasca:/var/www/html/wp-content/themes/alasca
+      - ./wp-content/plugins:/var/www/html/wp-content/plugins
+    ports:
+      - "8080:80"
+    networks:
+      - alasca_network
+
+  # ========================================
+  # phpMyAdmin (ferramenta de debug)
+  # ========================================
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: alasca_pma
+    restart: unless-stopped
+    depends_on:
+      - db
+    env_file: .env
+    environment:
+      PMA_HOST: ${PMA_HOST}
+      PMA_PORT: ${PMA_PORT}
+    ports:
+      - "8081:80"
+    networks:
+      - alasca_network
+
+# ========================================
+# Volumes persistentes
+# ========================================
+volumes:
+  db_data:
+    driver: local
+
+# ========================================
+# Rede interna
+# ========================================
+networks:
+  alasca_network:
+    driver: bridge

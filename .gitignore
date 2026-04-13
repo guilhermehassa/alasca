@@ -1,0 +1,63 @@
+# =========================
+# Ambiente Docker / WordPress
+# =========================
+
+# Dados persistentes do MySQL (volume Docker)
+db_data/
+
+# Uploads do WordPress (gerados em runtime)
+wp-content/uploads/
+
+# Arquivos de configuração local do WordPress (gerados pelo container)
+wp-content/upgrade/
+wp-content/cache/
+wp-content/backups/
+
+# Core do WordPress (gerenciado pelo Docker, não versionar)
+# Se mapear wp-content inteiro, os plugins/temas ficarão versionados
+# mas o core não é necessário
+
+# =========================
+# Variáveis de ambiente
+# =========================
+.env
+.env.local
+.env.*.local
+
+# =========================
+# Node.js / Tailwind CSS
+# =========================
+node_modules/
+wp-content/themes/alasca/node_modules/
+
+# =========================
+# Sistema Operacional
+# =========================
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# =========================
+# IDEs / Editores
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# =========================
+# Logs
+# =========================
+*.log
+npm-debug.log*
