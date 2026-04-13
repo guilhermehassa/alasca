@@ -99,7 +99,7 @@ get_footer();
 
 **Elementos:**
 - Logo "Imersão Direito Imobiliário" (topo esquerdo)
-- Badges: "04, 05 e 06 de fevereiro", "Ao vivo", "100% Online"
+- Badges: "01, 02 e 03 de setembro", "Ao vivo", "100% Online"
 - Headline (H1): "Em 3 dias, você descobrirá como advogar nas demandas rentáveis do Direito Imobiliário e faturar acima de R$20.000,00 em honorários por contrato."
 - Formulário (CF7 shortcode):
   - Input: Nome
@@ -112,20 +112,26 @@ get_footer();
 
 **Estrutura HTML sugerida:**
 ```php
-<section id="hero" class="relative bg-neutral-950 overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+<section id="hero" class="relative bg-black overflow-hidden">
+    <!-- Background com imagem de colunas do tribunal -->
+    <div class="absolute inset-0 opacity-10">
+        <img src="<?php echo ALASCA_URI; ?>/assets/images/hero_bg.png"
+             alt="" class="w-full h-full object-cover object-top" aria-hidden="true">
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
 
             <!-- Coluna esquerda: conteúdo -->
             <div class="order-2 lg:order-1">
                 <!-- Logo -->
-                <img src="..." alt="Imersão Direito Imobiliário" class="h-10 mb-6">
+                <img src="<?php echo ALASCA_URI; ?>/assets/images/logo.png"
+                     alt="Advogando no Direito Imobiliário" class="h-10 mb-6">
 
                 <!-- Badges -->
                 <div class="flex flex-wrap gap-2 mb-6">
-                    <span class="badge">📅 04, 05 e 06 de fevereiro</span>
+                    <span class="badge"><img src="<?php echo ALASCA_URI; ?>/assets/images/icon_calendar.svg" alt="" class="inline h-4 w-4 mr-1"> 01, 02 e 03 de setembro</span>
                     <span class="badge">🔴 Ao vivo</span>
-                    <span class="badge">💻 100% Online</span>
+                    <span class="badge"><img src="<?php echo ALASCA_URI; ?>/assets/images/icon_youtube.svg" alt="" class="inline h-4 w-4 mr-1"> 100% Online</span>
                 </div>
 
                 <!-- Headline H1 -->
@@ -144,7 +150,7 @@ get_footer();
 
             <!-- Coluna direita: imagem -->
             <div class="order-1 lg:order-2 flex justify-center lg:justify-end">
-                <img src="<?php echo ALASCA_URI; ?>/assets/images/hero-photo.webp"
+                <img src="<?php echo ALASCA_URI; ?>/assets/images/hero_image.png"
                      alt="Jaylton Lopes Jr. - Especialista em Direito Imobiliário"
                      class="max-w-sm lg:max-w-lg w-full h-auto"
                      loading="eager">
@@ -164,7 +170,7 @@ get_footer();
 **Elementos:**
 - Título (H2): "Para quem é?"
 - Card 1 (fundo escuro): Texto sobre advogados OAB que querem trabalhar com Direito Imobiliário
-- Card 2 (fundo azul/escuro): Texto sobre profissionais que já trabalham na área e querem se aprofundar
+- Card 2 (fundo vermelho escuro `#2D1010`, borda `#E34F4F`): Texto sobre profissionais que já trabalham na área e querem se aprofundar
 
 **Estrutura HTML sugerida:**
 ```php
@@ -181,8 +187,8 @@ get_footer();
                 </p>
             </div>
 
-            <!-- Card 2 -->
-            <div class="bg-primary/20 border border-primary/30 rounded-lg p-6 min-h-[200px] flex items-end">
+            <!-- Card 2 (vermelho) -->
+            <div class="bg-danger border border-danger-border rounded-lg p-6 min-h-[200px] flex items-end">
                 <p class="text-neutral-300 text-sm">
                     Não se preocupe também se você é estudante ou já exerce outra atividade.
                     O conteúdo será 100% focado na prática para quem
@@ -226,9 +232,9 @@ get_footer();
 
 | Aula | Data | Título |
 |------|------|--------|
-| Aula 01 | 04/02, 20h | Os Segredos da Usucapião de Sucesso |
-| Aula 02 | 05/02, 20h | Ações Judiciais nas Raízes do Direito Imobiliário |
-| Aula 03 | 06/02, 20h | O Passo a Passo da Regularização de Imóveis |
+| Aula 01 | 01/09, 20h | Os Segredos da Usucapião de Sucesso |
+| Aula 02 | 02/09, 20h | Ações Judiciais mais Rentáveis do Direito Imobiliário |
+| Aula 03 | 03/09, 20h | O Passo a Passo da Regularização de Imóveis |
 
 **Estrutura HTML sugerida (para cada módulo):**
 
@@ -242,12 +248,12 @@ get_footer();
             <!-- Card Aula 01 -->
             <div class="text-center">
                 <div class="rounded-lg overflow-hidden mb-4">
-                    <img src="<?php echo ALASCA_URI; ?>/assets/images/aula-01.webp"
+                    <img src="<?php echo ALASCA_URI; ?>/assets/images/cronograma_01_set.png"
                          alt="Aula 01 - Os Segredos da Usucapião de Sucesso"
                          class="w-full h-auto" loading="lazy">
                 </div>
                 <span class="inline-block bg-primary text-white text-xs font-bold px-3 py-1 rounded-full mb-2">
-                    Aula 01 | 04 FEV. 20h
+                    Aula 01 | 01 SET. 20h
                 </span>
                 <h3 class="text-white font-semibold text-sm">
                     Os Segredos da Usucapião de Sucesso
@@ -289,7 +295,8 @@ get_footer();
 
             <div class="card text-center">
                 <!-- Ícone IA -->
-                <div class="text-4xl mb-4">🤖</div>
+                <img src="<?php echo ALASCA_URI; ?>/assets/images/icon_brain_circuit.svg"
+                     alt="Inteligência Artificial" class="h-12 w-12 mx-auto mb-4">
                 <p class="text-neutral-300 text-sm">
                     Encontrará como utilizar Inteligência Artificial
                     para entregar mais em menos tempo.
@@ -298,7 +305,8 @@ get_footer();
 
             <div class="card text-center">
                 <!-- Ícone Sorteio -->
-                <div class="text-4xl mb-4">🎁</div>
+                <img src="<?php echo ALASCA_URI; ?>/assets/images/icon_gift.png"
+                     alt="Sorteio" class="h-12 w-12 mx-auto mb-4">
                 <p class="text-neutral-300 text-sm">
                     Poderá participar de um SORTEIO de 1 Apple (sic).
                 </p>
@@ -306,7 +314,8 @@ get_footer();
 
             <div class="card text-center">
                 <!-- Ícone Certificado -->
-                <div class="text-4xl mb-4">📜</div>
+                <img src="<?php echo ALASCA_URI; ?>/assets/images/icon_book.svg"
+                     alt="Certificado" class="h-12 w-12 mx-auto mb-4">
                 <p class="text-neutral-300 text-sm">
                     Poderá participar da emissão do CERTIFICADO
                     com Carga de horas Jurídicas.
@@ -353,7 +362,7 @@ get_footer();
             <!-- Foto -->
             <div class="order-1 lg:order-2 flex justify-center">
                 <div class="relative">
-                    <img src="<?php echo ALASCA_URI; ?>/assets/images/bio-photo.webp"
+                    <img src="<?php echo ALASCA_URI; ?>/assets/images/about_image.png"
                          alt="Jaylton Lopes Jr. - Advogado especialista em Direito Imobiliário"
                          class="rounded-lg max-w-sm w-full h-auto"
                          loading="lazy">
@@ -417,7 +426,7 @@ get_footer();
         <!-- Números principais (com ícone de telefone) -->
         <div class="flex flex-wrap justify-center gap-3 mb-8">
             <a href="tel:+5534900003863" class="inline-flex items-center gap-2 bg-neutral-900 border border-neutral-800 rounded-full px-4 py-2 text-sm text-neutral-300 hover:border-primary transition-colors">
-                📞 (34) 90000-3863
+                <img src="<?php echo ALASCA_URI; ?>/assets/images/icon_message.svg" alt="" class="h-4 w-4"> (34) 90000-3863
             </a>
             <!-- ... mais números ... -->
         </div>
@@ -429,7 +438,7 @@ get_footer();
         <!-- Números secundários (com ícone de WhatsApp) -->
         <div class="flex flex-wrap justify-center gap-3">
             <span class="inline-flex items-center gap-2 bg-neutral-900 border border-neutral-800 rounded-full px-4 py-2 text-xs text-neutral-500">
-                📱 (34) 98984-4774
+                <img src="<?php echo ALASCA_URI; ?>/assets/images/icon_whatsapp.svg" alt="" class="h-4 w-4"> (34) 98984-4774
             </span>
             <!-- ... mais números ... -->
         </div>

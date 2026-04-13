@@ -16,10 +16,21 @@ Importar, organizar e otimizar os assets visuais exportados do Figma, colocando-
 
 ## Diretório de destino
 
-Todos os assets devem ser colocados em:
+Os assets já foram exportados do Figma e estão disponíveis em:
+
+```
+d:\projects\alasca\assets\
+```
+
+Durante a Etapa 7, eles devem ser copiados para o diretório do tema:
 
 ```
 d:\projects\alasca\wp-content\themes\alasca\assets\images\
+```
+
+**Comando para copiar:**
+```powershell
+Copy-Item -Path "d:\projects\alasca\assets\*" -Destination "d:\projects\alasca\wp-content\themes\alasca\assets\images\" -Recurse
 ```
 
 ---
@@ -28,21 +39,23 @@ d:\projects\alasca\wp-content\themes\alasca\assets\images\
 
 ### Lista completa
 
-| # | Asset | Nome sugerido | Formato | Tamanho recomendado | Usado em |
-|---|-------|---------------|---------|---------------------|----------|
-| 1 | Logo "Imersão Direito Imobiliário" | `logo.svg` ou `logo.png` | SVG (preferencial) ou PNG com transparência | ~300px largura | Hero |
-| 2 | Foto principal do hero (profissional de terno) | `hero-photo.webp` | WebP (ou JPG) | 800-1200px largura | Hero |
-| 3 | Thumbnail Aula 01 — Usucapião | `aula-01.webp` | WebP (ou JPG) | 400px largura | Cronograma |
-| 4 | Thumbnail Aula 02 — Ações Judiciais | `aula-02.webp` | WebP (ou JPG) | 400px largura | Cronograma |
-| 5 | Thumbnail Aula 03 — Regularização | `aula-03.webp` | WebP (ou JPG) | 400px largura | Cronograma |
-| 6 | Foto bio (Jaylton Lopes Jr.) | `bio-photo.webp` | WebP (ou JPG) | 600px largura | Bio |
-| 7 | Ícone IA | `icon-ia.svg` | SVG | 48x48px | Você também |
-| 8 | Ícone Sorteio/Presente | `icon-sorteio.svg` | SVG | 48x48px | Você também |
-| 9 | Ícone Certificado | `icon-certificado.svg` | SVG | 48x48px | Você também |
-| 10 | Ícone WhatsApp | `icon-whatsapp.svg` | SVG | 20x20px | Números |
-| 11 | Ícone Telefone | `icon-phone.svg` | SVG | 20x20px | Números |
-| 12 | Background do hero (se houver textura/overlay) | `hero-bg.webp` | WebP (ou JPG) | 1920px largura | Hero |
-| 13 | Screenshot do tema (preview WP) | `screenshot.png` | PNG | 1200x900px | Painel WP |
+| # | Asset | Arquivo fonte (`assets/`) | Formato | Usado em |
+|---|-------|---------------------------|---------|----------|
+| 1 | Logo "Advogando no Direito Imobiliário" | `logo.png` | PNG | Hero |
+| 2 | Foto principal do hero (profissional) | `hero_image.png` | PNG | Hero |
+| 3 | Background do hero (colunas tribunal) | `hero_bg.png` | PNG | Hero (overlay) |
+| 4 | Thumbnail Aula 01 — Usucapião | `cronograma_01_set.png` | PNG | Cronograma |
+| 5 | Thumbnail Aula 02 — Ações Judiciais | `cronograma_02_set.png` | PNG | Cronograma |
+| 6 | Thumbnail Aula 03 — Regularização | `cronograma_03_set.png` | PNG | Cronograma |
+| 7 | Foto bio (Jaylton Lopes Jr.) | `about_image.png` | PNG | Bio |
+| 8 | Ícone IA/Cérebro-circuito | `icon_brain_circuit.svg` | SVG | Você também |
+| 9 | Ícone Sorteio/Presente | `icon_gift.png` | PNG | Você também |
+| 10 | Ícone Livro/Certificado | `icon_book.svg` | SVG | Você também |
+| 11 | Ícone WhatsApp | `icon_whatsapp.svg` | SVG | Números |
+| 12 | Ícone Mensagem | `icon_message.svg` | SVG | Números |
+| 13 | Ícone YouTube | `icon_youtube.svg` | SVG | Hero (badge) |
+| 14 | Ícone Calendário | `icon_calendar.svg` | SVG | Hero (badge) |
+| 15 | Ícone Relógio | `icon__clock.svg` | SVG | Cronograma |
 
 ---
 
@@ -105,27 +118,24 @@ Se preferir simplicidade, pode manter JPG/PNG. O impacto em performance é menor
    d:\projects\alasca\wp-content\themes\alasca\assets\images\
    ```
 
-2. Verifique a estrutura:
+2. Verifique a estrutura após copiar:
    ```
-   assets/images/
-   ├── logo.svg
-   ├── hero-photo.webp
-   ├── hero-bg.webp (se houver)
-   ├── aula-01.webp
-   ├── aula-02.webp
-   ├── aula-03.webp
-   ├── bio-photo.webp
-   ├── icon-ia.svg
-   ├── icon-sorteio.svg
-   ├── icon-certificado.svg
-   ├── icon-whatsapp.svg
-   ├── icon-phone.svg
-   └── screenshot.png (copiar para raiz do tema também)
-   ```
-
-3. Copie o `screenshot.png` para a raiz do tema:
-   ```powershell
-   Copy-Item "d:\projects\alasca\wp-content\themes\alasca\assets\images\screenshot.png" "d:\projects\alasca\wp-content\themes\alasca\screenshot.png"
+   wp-content/themes/alasca/assets/images/
+   ├── logo.png
+   ├── hero_image.png
+   ├── hero_bg.png
+   ├── about_image.png
+   ├── cronograma_01_set.png
+   ├── cronograma_02_set.png
+   ├── cronograma_03_set.png
+   ├── icon_brain_circuit.svg
+   ├── icon_gift.png
+   ├── icon_book.svg
+   ├── icon_whatsapp.svg
+   ├── icon_message.svg
+   ├── icon_youtube.svg
+   ├── icon_calendar.svg
+   └── icon__clock.svg
    ```
 
 ---
@@ -156,12 +166,12 @@ Se preferir SVG inline ao invés de `<img>`, pode usar:
 
 | Template Part | Assets utilizados |
 |--------------|-------------------|
-| `section-hero.php` | `logo.svg`, `hero-photo.webp`, `hero-bg.webp` |
-| `section-cronograma-1.php` | `aula-01.webp`, `aula-02.webp`, `aula-03.webp` |
-| `section-cronograma-2.php` | `aula-01.webp`, `aula-02.webp`, `aula-03.webp` |
-| `section-voce-tambem.php` | `icon-ia.svg`, `icon-sorteio.svg`, `icon-certificado.svg` |
-| `section-bio.php` | `bio-photo.webp` |
-| `section-numeros.php` | `icon-whatsapp.svg`, `icon-phone.svg` |
+| `section-hero.php` | `logo.png`, `hero_image.png`, `hero_bg.png`, `icon_calendar.svg`, `icon_youtube.svg` |
+| `section-cronograma-1.php` | `cronograma_01_set.png`, `cronograma_02_set.png`, `cronograma_03_set.png` |
+| `section-cronograma-2.php` | `cronograma_01_set.png`, `cronograma_02_set.png`, `cronograma_03_set.png` |
+| `section-voce-tambem.php` | `icon_brain_circuit.svg`, `icon_gift.png`, `icon_book.svg` |
+| `section-bio.php` | `about_image.png` |
+| `section-numeros.php` | `icon_whatsapp.svg`, `icon_message.svg` |
 
 ---
 
@@ -199,8 +209,7 @@ git push origin master
 
 ## Verificação
 
-- [ ] Todos os 13 assets da tabela estão no diretório `assets/images/`
-- [ ] `screenshot.png` copiado para a raiz do tema (aparece no painel WP)
+- [ ] Todos os 15 assets da tabela estão no diretório `assets/images/`
 - [ ] Imagens WebP abrem corretamente no navegador
 - [ ] SVGs renderizam corretamente (sem erros de path/viewBox)
 - [ ] Nenhum 404 no console do navegador para imagens

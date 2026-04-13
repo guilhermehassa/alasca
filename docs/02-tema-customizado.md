@@ -282,7 +282,7 @@ get_footer();
 @layer components {
     /* Botão CTA primário */
     .btn-cta {
-        @apply inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold
+        @apply inline-block bg-primary hover:bg-primary-hover text-white font-bold
                py-3 px-8 rounded-md uppercase tracking-wider text-sm
                transition-all duration-300 cursor-pointer
                focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
@@ -385,17 +385,21 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Cores do protótipo
+        // Cores do protótipo (valores extraídos do Figma)
         primary: {
-          DEFAULT: '#2563eb',
-          hover: '#1d4ed8',
-          light: '#3b82f6',
+          DEFAULT: '#1A40FF',
+          hover: '#1533CC',
+          light: '#4D6AFF',
         },
         dark: {
-          DEFAULT: '#0a0a0a',
-          card: '#111111',
-          border: '#1f1f1f',
-          lighter: '#171717',
+          DEFAULT: '#000000',
+          card: '#1A1A1A',
+          border: '#1A1A1A',
+          lighter: '#111111',
+        },
+        danger: {
+          DEFAULT: '#2D1010',
+          border: '#E34F4F',
         }
       },
       fontFamily: {
@@ -451,17 +455,18 @@ Isso recompila o CSS automaticamente a cada alteração nos arquivos `.php`, `.j
 
 ---
 
-## Paleta de cores (extraída do protótipo)
+## Paleta de cores (extraída do Figma)
 
-| Uso                  | Cor         | Classe Tailwind         |
-|----------------------|-------------|------------------------|
-| Background principal | `#0a0a0a`   | `bg-dark` / `bg-neutral-950` |
-| Background cards     | `#111111`   | `bg-dark-card` / `bg-neutral-900` |
-| Bordas/divisores     | `#1f1f1f`   | `border-dark-border` / `border-neutral-800` |
-| Azul CTA (botões)    | `#2563eb`   | `bg-primary` / `bg-blue-600` |
-| Azul hover           | `#1d4ed8`   | `hover:bg-primary-hover` |
-| Texto principal      | `#ffffff`   | `text-white`           |
-| Texto secundário     | `#a3a3a3`   | `text-neutral-400`     |
+| Uso                          | Cor         | Classe Tailwind                    |
+|------------------------------|-------------|------------------------------------|
+| Preto (background principal) | `#000000`   | `bg-dark` / `bg-black`             |
+| Azul (CTA / botões / accent) | `#1A40FF`   | `bg-primary`                       |
+| Branco (texto principal)     | `#FFFFFF`   | `text-white`                       |
+| Preto cards/cronograma       | `#1A1A1A`   | `bg-dark-card` / `border-dark-border` |
+| Card vermelho (Para quem é)  | `#2D1010`   | `bg-danger`                        |
+| Borda card vermelho           | `#E34F4F`   | `border-danger-border`             |
+| Azul hover                   | `#1533CC`   | `hover:bg-primary-hover`           |
+| Texto secundário             | `#a3a3a3`   | `text-neutral-400`                 |
 
 ---
 
