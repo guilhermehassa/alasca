@@ -179,7 +179,11 @@ alasca/
 │   ├── 05-responsividade.md
 │   ├── 06-seo-yoast.md
 │   ├── 07-assets-figma.md
-│   └── 08-finalizacao-deploy.md
+│   ├── 08-finalizacao-deploy.md
+│   └── 09-validacao-playwright.md
+├── referencia/                 # PDFs de referência (protótipos Figma)
+│   ├── desktop.pdf
+│   └── mobile.pdf
 └── wp-content/
     ├── themes/alasca/          # Tema customizado
     │   ├── style.css
@@ -258,8 +262,9 @@ git push origin master
 Ao final de todas as etapas, o histórico de commits deve ser:
 
 ```
-docs: README final e ajustes de revisão            (Etapa 8)
-feat: assets do Figma integrados                   (Etapa 7)
+docs: etapa 9 - validação visual via MCP Playwright  (Etapa 9)
+docs: README final e ajustes de revisão               (Etapa 8)
+feat: assets do Figma integrados                      (Etapa 7)
 feat: SEO com Yoast + HTML semântico               (Etapa 6)
 feat: responsividade mobile-first completa         (Etapa 5)
 feat: formulários CF7 com validação, máscaras e CF7DB (Etapa 4)
@@ -274,7 +279,7 @@ Initial commit                                     (GitHub)
 
 ## Verificação Final
 
-- [ ] Todos os 9 commits realizados e pushados
+- [ ] Todos os 10 commits realizados e pushados
 - [ ] WordPress funcional em `localhost:8080`
 - [ ] Landing page renderiza todas as 11 seções
 - [ ] Formulários submetem e armazenam dados

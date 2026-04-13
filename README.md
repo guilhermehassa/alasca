@@ -64,6 +64,17 @@ npm run watch    # Desenvolvimento (com hot reload)
 npm run build    # Produção (minificado)
 ```
 
+## Material de referência
+
+A pasta `referencia/` contém os protótipos exportados do Figma em PDF, que servem como base visual para todo o desenvolvimento:
+
+| Arquivo | Descrição |
+|---------|-----------|
+| `referencia/desktop.pdf` | Layout completo da versão desktop |
+| `referencia/mobile.pdf` | Layout completo da versão mobile |
+
+> Consulte esses PDFs durante o desenvolvimento para garantir fidelidade ao design e, ao final, para validação visual.
+
 ## Estrutura do projeto
 
 ```
@@ -81,7 +92,11 @@ alasca/
 │   ├── 05-responsividade.md
 │   ├── 06-seo-yoast.md
 │   ├── 07-assets-figma.md
-│   └── 08-finalizacao-deploy.md
+│   ├── 08-finalizacao-deploy.md
+│   └── 09-validacao-playwright.md
+├── referencia/                 # PDFs de referência (protótipos Figma)
+│   ├── desktop.pdf             # Layout desktop completo
+│   └── mobile.pdf              # Layout mobile completo
 └── wp-content/
     ├── themes/alasca/          # Tema customizado
     │   ├── style.css
