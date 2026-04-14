@@ -42,7 +42,7 @@
     }
 
     .card {
-        @apply bg-dark-card border border-dark-border rounded-lg p-6;
+        @apply bg-dark-card border border-dark-border rounded-xl p-6;
     }
 
     .section-title {
