@@ -49,7 +49,7 @@ function alasca_enqueue_assets() {
         'alasca-style',
         ALASCA_URI . '/assets/css/style.css',
         ['google-fonts'],
-        ALASCA_VERSION
+        filemtime(ALASCA_DIR . '/assets/css/style.css')
     );
 
     // IMask.js para máscaras de input

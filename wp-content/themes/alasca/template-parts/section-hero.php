@@ -8,7 +8,7 @@
     <!-- Background com imagem de colunas do tribunal -->
     <div class="absolute inset-0">
         <img src="<?php echo ALASCA_URI; ?>/assets/images/hero_bg.png"
-             alt="" class="w-full h-full object-cover object-top opacity-30 lg:opacity-40" aria-hidden="true"
+             class="w-full lg:h-full m-auto object-cover object-top" style="max-width:1400px;" aria-hidden="true"
              loading="eager">
     </div>
 
