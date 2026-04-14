@@ -1,120 +1,165 @@
-# Alasca — Imersão em Direito Imobiliário
+# Alasca — Teste Técnico: Landing Page WordPress
 
-Landing page de captura para a Imersão em Direito Imobiliário, desenvolvida com WordPress + tema customizado (Tailwind CSS).
+Projeto de teste técnico para a empresa **Alasca**. Consiste em uma landing page de captura para a "Imersão em Direito Imobiliário", desenvolvida em WordPress com tema customizado.
 
-## Tecnologias
+O projeto foi construído a partir de protótipos Figma (desktop e mobile), transformando o design em uma landing page funcional com formulários de captura, responsividade completa e otimização SEO.
 
-- **CMS:** WordPress (latest)
-- **Estilização:** Tailwind CSS 3.4
-- **Formulários:** Contact Form 7 + CFDB7
-- **SEO:** Yoast SEO
-- **Infraestrutura:** Docker (WordPress + MySQL + phpMyAdmin)
-- **Máscaras:** IMask.js
-- **Fontes:** Chivo (títulos e botões) · Figtree (textos)
+---
 
-## Pré-requisitos
+## Como o Projeto Funciona
+
+### Stack Técnica
+
+| Camada | Tecnologia |
+|--------|------------|
+| **CMS** | WordPress (latest) |
+| **Infraestrutura** | Docker (WordPress + MySQL 8.0 + phpMyAdmin) |
+| **Tema** | Customizado do zero — `alasca` |
+| **Estilização** | Tailwind CSS 3.4 |
+| **Formulários** | Contact Form 7 (CF7) + CFDB7 (armazenamento no banco) |
+| **SEO** | Yoast SEO + Schema Markup (Event) |
+| **Máscaras de Input** | IMask.js |
+| **Fontes** | Google Fonts — Chivo (títulos/botões) + Figtree (textos) |
+
+### Tema Customizado (`alasca`)
+
+O tema foi desenvolvido do zero, sem uso de page builders. Toda a estrutura é baseada em templates PHP com classes utilitárias do Tailwind CSS.
+
+**Arquivos principais do tema:**
+
+| Arquivo | Função |
+|---------|--------|
+| `front-page.php` | Template da página inicial (Landing Page) |
+| `header.php` | Cabeçalho HTML, meta tags, enqueue de assets |
+| `footer.php` | Rodapé com scripts |
+| `functions.php` | Registro de assets (CSS/JS/Fonts), limpeza do `<head>`, schema markup, desativação do Gutenberg para páginas |
+| `style.css` | Metadados do tema WordPress (obrigatório) |
+| `tailwind.config.js` | Configuração do Tailwind (cores, fontes, breakpoints) |
+
+**Seções da Landing Page** (em `template-parts/`):
+
+| Template Part | Seção |
+|---------------|-------|
+| `section-hero.php` | Hero com formulário de captura |
+| `section-para-quem.php` | "Para quem é?" — cards de público-alvo |
+| `section-cta.php` | Call-to-action (reutilizado 2x) |
+| `section-cronograma.php` | Cronograma/Programação do evento |
+| `section-voce-tambem.php` | "Você também" — prova social |
+| `section-bio.php` | Biografia do organizador |
+| `section-como-participar.php` | Formulário de inscrição |
+| `section-numeros.php` | Números/estatísticas oficiais |
+
+### Plugins Utilizados
+
+| Plugin | Função |
+|--------|--------|
+| **Contact Form 7** | Criação dos formulários de captura (Hero e Como Participar) |
+| **CFDB7** | Armazenamento dos envios de formulário no banco de dados WordPress |
+| **Yoast SEO** | Configuração de meta tags, título, descrição e análise de SEO |
+| **Akismet** | Anti-spam (padrão do WordPress) |
+
+### Compilação do CSS
+
+O Tailwind CSS compila a partir de `src/input.css` para `assets/css/style.css`:
+
+```bash
+cd wp-content/themes/alasca
+npm install
+npm run build    # Produção (minificado)
+npm run watch    # Desenvolvimento (hot reload)
+```
+
+---
+
+## Como Rodar o Projeto
+
+### Pré-requisitos
 
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - [Node.js](https://nodejs.org/) (v18+)
 - [Git](https://git-scm.com/)
 
-## Como rodar
-
-### 1. Clonar o repositório
+### 1. Clonar e configurar
 
 ```bash
 git clone https://github.com/guilhermehassa/alasca.git
 cd alasca
-```
-
-### 2. Configurar variáveis de ambiente
-
-```bash
 cp .env.example .env
-# Edite o .env com suas credenciais (ou use os valores padrão para dev)
 ```
 
-### 3. Subir os containers
+Edite o `.env` com suas credenciais ou use os valores padrão para desenvolvimento local.
+
+### 2. Subir os containers
 
 ```bash
 docker-compose up -d
 ```
 
-### 4. Acessar o WordPress
+### 3. Configuração inicial do WordPress
 
-| Serviço | URL |
-|---------|-----|
-| WordPress | http://localhost:8080 |
-| WP Admin | http://localhost:8080/wp-admin |
-| phpMyAdmin | http://localhost:8081 |
+Na primeira execução, acesse `http://localhost:8080` e siga o assistente de instalação do WordPress. Após a instalação:
 
-Na primeira execução, siga o assistente de instalação do WordPress.
+1. Acesse **WP Admin → Aparência → Temas** e ative o tema **"Alasca"**
+2. Em **Configurações → Leitura**, defina a página inicial como **"Home"**
+3. Ative os plugins **Contact Form 7**, **CFDB7** e **Yoast SEO**
 
-### 5. Ativar o tema
+---
 
-1. WP Admin → Aparência → Temas
-2. Ativar "Alasca"
-3. Configurações → Leitura → Página inicial: "Home"
+## Acesso ao WordPress
 
-### 6. Compilar CSS (Tailwind)
+| Serviço | URL | Credenciais |
+|---------|-----|-------------|
+| **Site (Landing Page)** | http://localhost:8080 | — |
+| **WP Admin** | http://localhost:8080/wp-admin | `admin` / `Admin@123456` |
+| **phpMyAdmin** | http://localhost:8081 | root / senha do `.env` |
 
-```bash
-cd wp-content/themes/alasca
-npm install
-npm run watch    # Desenvolvimento (com hot reload)
-npm run build    # Produção (minificado)
-```
+### Banco de Dados
 
-## Material de referência
+| Variável | Valor padrão |
+|----------|-------------|
+| Host | `db:3306` (interno Docker) / `localhost:3306` (externo) |
+| Database | `wordpress` |
+| Usuário | Definido no `.env` |
 
-A pasta `referencia/` contém os protótipos exportados do Figma em PDF, que servem como base visual para todo o desenvolvimento:
+---
 
-| Arquivo | Descrição |
-|---------|-----------|
-| `referencia/desktop.pdf` | Layout completo da versão desktop |
-| `referencia/mobile.pdf` | Layout completo da versão mobile |
-
-> Consulte esses PDFs durante o desenvolvimento para garantir fidelidade ao design e, ao final, para validação visual.
-
-## Estrutura do projeto
+## Estrutura do Projeto
 
 ```
 alasca/
-├── docker-compose.yml          # Orquestração Docker
-├── .env.example                # Template de variáveis de ambiente
-├── .gitignore
+├── docker-compose.yml              # Orquestração Docker (WP + MySQL + phpMyAdmin)
+├── .env.example                    # Template de variáveis de ambiente
 ├── README.md
-├── docs/                       # Documentação de cada etapa
-│   ├── 00-setup-repositorio.md
-│   ├── 01-docker-wordpress.md
-│   ├── 02-tema-customizado.md
-│   ├── 03-estrutura-pagina.md
-│   ├── 04-formularios-cf7.md
-│   ├── 05-responsividade.md
-│   ├── 06-seo-yoast.md
-│   ├── 07-assets-figma.md
-│   ├── 08-finalizacao-deploy.md
-│   └── 09-validacao-playwright.md
-├── referencia/                 # PDFs de referência (protótipos Figma)
-│   ├── desktop.pdf             # Layout desktop completo
-│   └── mobile.pdf              # Layout mobile completo
-└── wp-content/
-    ├── themes/alasca/          # Tema customizado
-    │   ├── style.css
-    │   ├── functions.php
-    │   ├── front-page.php
-    │   ├── header.php
-    │   ├── footer.php
-    │   ├── index.php
-    │   ├── template-parts/     # Seções componentizadas
-    │   ├── assets/
-    │   │   ├── css/style.css   # CSS compilado (Tailwind)
-    │   │   ├── js/main.js      # JavaScript
-    │   │   └── images/         # Assets visuais
-    │   ├── src/input.css       # Source do Tailwind
-    │   ├── package.json
-    │   └── tailwind.config.js
-    └── plugins/                # Plugins WP (versionados)
+├── referencia/                     # Protótipos Figma exportados em PDF
+│   ├── desktop.pdf
+│   └── mobile.pdf
+├── wp-content/
+│   ├── plugins/                    # Plugins WordPress (CF7, CFDB7, Yoast, Akismet)
+│   └── themes/
+│       └── alasca/                 # Tema customizado
+│           ├── front-page.php      # Template da landing page
+│           ├── header.php          # Cabeçalho
+│           ├── footer.php          # Rodapé
+│           ├── functions.php       # Lógica do tema
+│           ├── style.css           # Metadados do tema
+│           ├── tailwind.config.js  # Config Tailwind
+│           ├── package.json        # Scripts npm (build/watch)
+│           ├── src/input.css       # CSS fonte (Tailwind directives)
+│           ├── assets/
+│           │   ├── css/style.css   # CSS compilado
+│           │   ├── js/main.js      # JavaScript (máscaras, interações)
+│           │   └── images/         # Imagens otimizadas (WebP)
+│           └── template-parts/     # Seções componentizadas da LP
+│               ├── section-hero.php
+│               ├── section-para-quem.php
+│               ├── section-cta.php
+│               ├── section-cronograma.php
+│               ├── section-voce-tambem.php
+│               ├── section-bio.php
+│               ├── section-como-participar.php
+│               └── section-numeros.php
+└── docs/                           # Documentação do projeto
+    └── projeto.md
 ```
 
 ## Documentação
