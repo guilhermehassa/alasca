@@ -14,7 +14,7 @@
 @layer components {
     .btn-cta {
         @apply inline-block bg-primary hover:bg-primary-hover text-white font-heading font-bold
-               py-3 px-8 rounded-md uppercase tracking-wider text-sm
+               py-3 px-8 rounded uppercase tracking-wider text-sm w-full text-center
                transition-all duration-300 cursor-pointer
                focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
                focus:ring-offset-black;
@@ -28,9 +28,9 @@
     }
 
     .input-field {
-        @apply w-full bg-neutral-800 border border-neutral-700 text-white
-               rounded-md px-4 py-3 text-sm placeholder-neutral-500
-               focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
+        @apply w-full bg-white border border-neutral-300 text-neutral-900
+               rounded px-4 py-3 text-sm placeholder-neutral-400
+               focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent
                transition-all duration-200;
     }
 
@@ -60,6 +60,15 @@
 }
 .wpcf7-form {
     @apply w-full;
+}
+.wpcf7-form .wpcf7-form-control-wrap {
+    @apply block;
+}
+.wpcf7-form p {
+    @apply mb-0;
+}
+.wpcf7-form br {
+    display: none;
 }
 .wpcf7-spinner {
     display: none !important;
